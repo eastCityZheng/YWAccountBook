@@ -1,0 +1,4 @@
+wechatMiniProgram:
+  url: https://api.weixin.qq.com/sns/jscode2session?appid=APPID&secret=SECRET&js_code=JSCODE&grant_type=authorization_code
+  appId: wxfe348db349db20b4
+  appSecret: 563fbb4635dbc54fd58a5923666a570b
