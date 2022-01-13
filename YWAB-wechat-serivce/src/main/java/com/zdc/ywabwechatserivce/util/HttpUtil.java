@@ -3,6 +3,7 @@ package com.zdc.ywabwechatserivce.util;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.zdc.ywabwechatserivce.domain.WeChatProperties;
+import lombok.extern.slf4j.Slf4j;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -12,7 +13,6 @@ import org.springframework.util.StringUtils;
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;
-import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -20,6 +20,7 @@ import java.util.Objects;
  * @date 2022年01月04日
  */
 @Component
+@Slf4j
 public class HttpUtil {
 
     private static OkHttpClient client = new OkHttpClient();
@@ -53,7 +54,7 @@ public class HttpUtil {
         try (Response response = client.newCall(request).execute()) {
             return Objects.requireNonNull(response.body()).string();
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("call http error",e);
         }
         return "";
     }

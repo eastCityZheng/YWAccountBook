@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Data
-@PropertySource(value = {"classpath:wechat.yml"})
 @ConfigurationProperties(prefix = "wechat")
+@PropertySource(value = {"classpath:wechat.properties"})
 public class WeChatProperties {
 
     public String url;
